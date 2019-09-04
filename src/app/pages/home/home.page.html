@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-toolbar mode="ios">
+        <ion-buttons slot="start">
+            <ion-button (click)="createPdf()">
+                <ion-icon name="add"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>Principal</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="downloadPdf()">
+                <ion-icon name="download"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-reorder-group (ionItemReorder)="doReorder($event)" disabled="false">
+        <!-- Default reorder icon, end aligned items -->
+        <ion-card padding *ngFor="let imagen of pictures; let x = index;">
+            <ion-card-header>
+                <ion-card-title text-center>
+                    {{x}}
+                </ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+                <div text-center>
+                    <img width="25px" [src]="imagen" alt="">
+                    <ion-reorder slot="end"></ion-reorder>
+                </div>
+            </ion-card-content>
+        </ion-card>
+
+    </ion-reorder-group>
+</ion-content>
